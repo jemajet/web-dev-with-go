@@ -11,12 +11,18 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprint(w, "<h1>Contact Page</h1><p>To get in touch, email me at <a href=\"mailto:jon@calhoun.io\">jon@calhoun.io</a></p>")
 }
 
 func notFoundHandler(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusNotFound)
 	fmt.Fprint(w, "Oops! Page not found")
+}
+
+func faqHandler(w http.ResponseWriter, r *http.Request) {
+  w.Header().Set("Content-Type", "text/html; charset=utf-8")
+  fmt.Fprint(w, `<h1>FAQ Page</h1>`)
 }
 
 // func pathHandler(w http.ResponseWriter, r *http.Request) {
@@ -38,6 +44,8 @@ func (router Router) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		homeHandler(w, r)
 	case "/contact":
 		contactHandler(w, r)
+	case "/faq":
+		faqHandler(w, r)
 	default:
 		http.Error(w, "Page not found", http.StatusNotFound)
 	}
