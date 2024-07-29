@@ -17,6 +17,8 @@ go install .
 
 ## Add to .bashrc to add GOPATH
 export PATH=$PATH:$(go env GOPATH)/bin
+## Downloading default go library if GOPROXY is set (like at work)
+GOPROXY=https://proxy.golang.org,direct go install [package-link]
 
 ```
 
