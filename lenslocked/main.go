@@ -23,8 +23,10 @@ func faqHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	// Setup Routing
+	// Create Router
 	r := chi.NewRouter()
+
+	// Setup Routing
 	r.Get("/", homeHandler)
 	r.Get("/contact", contactHandler)
 	r.Get("/faq", faqHandler)
