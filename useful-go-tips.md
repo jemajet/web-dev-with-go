@@ -4,15 +4,19 @@
 ```bash
 
 # Go module commands
-go mod # Used to work with modules
+## Used to work with modules
+go mod
 
-go mod init # Initializes a new module in current directory
+## Initializes a new module in current directory
+go mod init
 
-go install . # Install the current directory
+## Install the current directory
+go install .
 
 # Random Ones
 
-export PATH=$PATH:$((go env GOPATH))/bin # Add to .bashrc to add GOPATH
+## Add to .bashrc to add GOPATH
+export PATH=$PATH:$(go env GOPATH)/bin
 
 ```
 
