@@ -23,6 +23,7 @@ func faqHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	// Setup Routing
 	r := chi.NewRouter()
 	r.Get("/", homeHandler)
 	r.Get("/contact", contactHandler)
@@ -30,6 +31,8 @@ func main() {
 	r.NotFound(func(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Page not found", http.StatusNotFound)
 	})
+
+	// Start serving with our router
 	fmt.Println("Starting the server on :3000...")
 	http.ListenAndServe(":3000", r)
 }
