@@ -20,6 +20,7 @@ export PATH=$PATH:$(go env GOPATH)/bin
 ## Downloading default go library if GOPROXY is set (like at work)
 GOPROXY=https://proxy.golang.org,direct go install [package-link]
 
+git remote set-url "origin" git@github.com-personal:jemajet/web-dev-with-go.git
 ```
 
 
