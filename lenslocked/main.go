@@ -11,8 +11,6 @@ import (
 )
 
 func executeTemplate(w http.ResponseWriter, filepath string) {
-	// Using HTML so set the content to HTML
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 
 	// Parse the template
 	t, err := views.Parse(filepath)
