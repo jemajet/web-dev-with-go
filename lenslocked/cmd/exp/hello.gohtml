@@ -1,11 +1,40 @@
-<h1>Hello, {{.Name}}</h1>
-<p>Bio: {{.Bio}}</p>
+{{define "footer"}}
+    <footer>
+        <p>
+            Copyright 2016 Calhoun.io
+        </p>
+        <p>
+            Contact information: <a href="mailto:jon@calhoun.io">jon@calhoun.io</a>.
+        </p>
+    </footer>
+{{end}}
 
-<script>
-    const user = {
-        "name": {{.Name}},
-        "bio": {{.Bio}},
-        "age": {{.Age}}
-    };
-    console.log(user);
-</script>
+<h1>Hello, {{.Name}}</h1>
+
+{{ range .Widgets }}
+    <div class="widget">
+        <h3 class="name">{{ .Name }}</h3>
+        <span class="price">${{ .Price }}</span>
+    </div>
+{{ end }}
+{{ template "footer" }}
+
+<h1>Hello, {{.Keys.gri}}</h1>
+
+{{ range .Keys }}
+    Access with just the map itself
+    <p>{{.}}</p>
+{{ end }}
+
+{{ range $key, $value := .Keys }}
+    Access the individual keys and values
+    <p>{{$key}}: {{$value}}</p>
+{{ end }}
+
+{{ if .BoolVal }}
+    {{.BoolVal}} was Correct!
+{{ else }}
+    {{.BoolVal}} was Wrong :(
+{{ end }}
+
+{{ }}

@@ -6,13 +6,15 @@ import (
 )
 
 type User struct {
-	Name string
-	Bio  string
-	Age  int
+	Name    string
+	Widgets []Widget
+	Keys    map[string]int
+	BoolVal bool
 }
 
-type UserMeta struct {
-	Visits int
+type Widget struct {
+	Name  string
+	Price int
 }
 
 func main() {
@@ -23,8 +25,18 @@ func main() {
 
 	user := User{
 		Name: "Mark W",
-		Bio:  `<script>alert("Haha, you have been h4x0r3d!");</script>`,
-		Age:  123,
+		Widgets: []Widget{
+			Widget{"Red Widget", 12},
+			Widget{"Green Widget", 11},
+			Widget{"Blue Widget", 10},
+		},
+		Keys: map[string]int{
+			"rsc": 3711,
+			"r":   2138,
+			"gri": 1908,
+			"adg": 912,
+		},
+		BoolVal: false,
 	}
 
 	err = t.Execute(os.Stdout, user)
