@@ -11,7 +11,6 @@ import (
 )
 
 func executeTemplate(w http.ResponseWriter, filepath string) {
-
 	// Parse the template
 	t, err := views.Parse(filepath)
 	if err != nil {
