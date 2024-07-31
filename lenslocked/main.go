@@ -18,14 +18,26 @@ func main() {
 	r.Get("/", controllers.StaticHandler(tpl))
 
 	tpl = views.Must(views.ParseFS(templates.FS, "contact.gohtml"))
-	r.Get("/contact", controllers.StaticHandler(tpl))
+	r.Get(
+		"/contact",
+		controllers.StaticHandler(
+			views.Must(
+				views.ParseFS(
+					templates.FS,
+					"contact.gohtml",
+				),
+			),
+		),
+	)
 
 	tpl = views.Must(views.ParseFS(templates.FS, "faq.gohtml"))
 	r.Get("/faq", controllers.StaticHandler(tpl))
 
-	r.NotFound(func(w http.ResponseWriter, r *http.Request) {
-		http.Error(w, "Page not found", http.StatusNotFound)
-	})
+	r.NotFound(
+		func(w http.ResponseWriter, r *http.Request) {
+			http.Error(w, "Page not found", http.StatusNotFound)
+		},
+	)
 
 	// Start serving with our router
 	fmt.Println("Starting the server on :3000...")
