@@ -31,11 +31,7 @@
 
 - **Swap Line Up/Down:**
     - **VSCode:** `Opt+Up/Down`
-    - **JetBrains:** `Cmd+Shift+Up/Down`kkuser := User{
-      Bio: `<script>alert("Haha, you have been h4x0r3d!");</script>`,
-      }kuser := User{
-      Bio: `<script>alert("Haha, you have been h4x0r3d!");</script>`,
-      }
+    - **JetBrains:** `Cmd+Shift+Up/Down`
 
 ### Navigation
 
