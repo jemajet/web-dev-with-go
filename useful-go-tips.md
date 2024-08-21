@@ -21,6 +21,12 @@ export PATH=$PATH:$(go env GOPATH)/bin
 GOPROXY=https://proxy.golang.org,direct go install [package-link]
 
 git remote set-url "origin" git@github.com-personal:jemajet/web-dev-with-go.git
+
+## Remember that ssh connections are cached so they may need to be cleared then re-added if you
+## tried to push without using ssh-add first
+ssh-add -D
+ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_rsa_personal
 ```
 
 
